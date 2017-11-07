@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+    .wrapper{
+        width:320px;
+        height:153px;
+        overflow: hidden;
+        position: relative;
+    }
+    .wrapper>ul{
+        width:9999px;
+        position: absolute;
+        left:0;
+        top:0;
+    }
+    .wrapper>ul>li{
+        float: left;
+    }
+    .clearfix{
+        overflow:hidden;
+        _zoom:1;/*ie6*/
+    }
+    </style>
+</head>
+<body>
+    <input type="button" value="next" id="btn">
+    <div class="wrapper">
+        <ul class="clearfix">
+            <li>
+                <img src="./imgs/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/4.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <script>
+    window.onload = function(){
+        var oBtn = document.querySelector('#btn');
+        var oUl = document.querySelector('.wrapper>ul');
+        oBtn.onclick = function(){
+            var myLeft = oUl.offsetLeft - 320;
+            if(myLeft < -960){
+                myLeft = 0;
+            }
+            oUl.style.left = myLeft + 'px';
+        }
+    }
+    </script>
+</body>
+</html>

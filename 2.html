@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+    .wrapper{
+        width:320px;
+        height:153px;
+        border:1px solid green;
+        text-align: center;
+    }
+    .wrapper>img{
+        height: 153px;
+    }
+    </style>
+</head>
+<body>
+    <input type="button" value="next" id="btn">
+    <div class="wrapper">
+        <img src="./imgs/timg.gif" alt="" id="myImg">
+    </div>
+    <script>
+    window.onload = function(){
+        var data = ['./imgs/1.jpg','./imgs/2.jpg','./imgs/3.jpg','./imgs/4.jpg']
+        var oBtn = document.querySelector('#btn');
+        var oUl = document.querySelector('.wrapper>ul');
+        var oImg = document.querySelector('#myImg');
+        function render(){
+            oImg.src = data[0];
+        }
+        render();
+        oBtn.onclick = function(){
+            var tempImg = data.shift();
+            data.push(tempImg);
+            render();
+        }
+    }
+    </script>
+</body>
+
+
+
+
+</html>
